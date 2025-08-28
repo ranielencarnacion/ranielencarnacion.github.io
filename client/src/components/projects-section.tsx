@@ -77,8 +77,8 @@ export default function ProjectsSection() {
                 className={`${project.side === "left" ? "order-2 lg:order-1" : "order-2"}`}
               >
                 <motion.div
-                  whileHover={{ scale: 1.02, borderColor: "var(--primary)" }}
-                  className="bg-card p-8 rounded-lg border border-border hover:border-primary transition-all"
+                  whileHover={{ scale: 1.02 }}
+                  className="glassmorphism-card p-8 rounded-lg hover:bg-white/10 transition-all duration-300 animate-scale-in"
                   data-testid={`project-${project.title.toLowerCase().split(' ')[0]}`}
                 >
                   <img
@@ -86,15 +86,15 @@ export default function ProjectsSection() {
                     alt={`${project.title} screenshot`}
                     className="w-full h-48 object-cover rounded-lg mb-6"
                   />
-                  <h3 className="text-2xl font-bold gradient-text mb-2">{project.title}</h3>
-                  <p className="text-lg text-primary mb-4">{project.subtitle}</p>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">{project.title}</h3>
+                  <p className="text-lg text-white/80 mb-4">{project.subtitle}</p>
+                  <p className="text-white/60 mb-6 leading-relaxed">
                     {project.description}
                   </p>
                   
                   <div className="mb-6">
-                    <h4 className="font-bold mb-3">Highlights:</h4>
-                    <ul className="text-sm text-muted-foreground space-y-2">
+                    <h4 className="font-bold text-white mb-3">Highlights:</h4>
+                    <ul className="text-sm text-white/60 space-y-2">
                       {project.highlights.map((highlight, i) => (
                         <li key={i}>• {highlight}</li>
                       ))}
@@ -103,7 +103,7 @@ export default function ProjectsSection() {
                   
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech) => (
-                      <span key={tech} className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">
+                      <span key={tech} className="px-3 py-1 glassmorphism text-white/80 rounded-full text-sm">
                         {tech}
                       </span>
                     ))}
@@ -113,7 +113,7 @@ export default function ProjectsSection() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all flex items-center gap-2"
+                      className="px-6 py-2 bg-white text-black rounded-lg hover:bg-white/90 transition-all duration-300 flex items-center gap-2 font-medium"
                       data-testid={`button-github-${project.title.toLowerCase().split(' ')[0]}`}
                     >
                       <Github size={16} />
@@ -122,7 +122,7 @@ export default function ProjectsSection() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-6 py-2 border border-border rounded-lg hover:bg-secondary transition-all flex items-center gap-2"
+                      className="px-6 py-2 glassmorphism rounded-lg hover:bg-white/20 transition-all duration-300 flex items-center gap-2 font-medium"
                       data-testid={`button-demo-${project.title.toLowerCase().split(' ')[0]}`}
                     >
                       <ExternalLink size={16} />

@@ -46,7 +46,7 @@ export default function Navigation() {
 
   return (
     <motion.nav 
-      className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"
+      className="fixed top-0 left-0 right-0 z-50 glassmorphism-header"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -54,10 +54,10 @@ export default function Navigation() {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <motion.div 
-            className="font-bold text-xl gradient-text"
+            className="font-bold text-xl text-white tracking-tight"
             whileHover={{ scale: 1.05 }}
           >
-            JA
+            John Ashley Villanueva
           </motion.div>
           
           {/* Desktop Navigation */}
@@ -66,8 +66,8 @@ export default function Navigation() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className={`transition-colors hover:text-primary ${
-                  activeSection === link.id ? "text-primary" : "text-foreground"
+                className={`transition-all duration-200 hover:bg-white/20 px-3 py-2 rounded-lg ${
+                  activeSection === link.id ? "text-white bg-white/10" : "text-white/80 hover:text-white"
                 }`}
                 data-testid={`nav-link-${link.id}`}
               >
@@ -98,8 +98,8 @@ export default function Navigation() {
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className={`block w-full text-left py-2 transition-colors hover:text-primary ${
-                  activeSection === link.id ? "text-primary" : "text-foreground"
+                className={`block w-full text-left py-2 transition-all duration-200 hover:bg-white/20 px-3 rounded-lg ${
+                  activeSection === link.id ? "text-white bg-white/10" : "text-white/80 hover:text-white"
                 }`}
                 data-testid={`mobile-nav-link-${link.id}`}
               >

@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Download, Eye } from "lucide-react";
-import TypingAnimation from "@/components/ui/typing-animation";
+import TypingAnimation from "./ui/typing-animation";
 
 export default function HeroSection() {
   const titles = [
-    "John Ashley Villa",
-    "Software Engineer",
-    "Web Developer", 
+    "John Ashley Villanueva",
+    "Full-Stack Developer", 
     "React Developer",
-    "Full-Stack Developer"
+    "Web Developer",
+    "Software Engineer"
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -19,9 +19,10 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10" />
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+      {/* Background gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
       
       <div className="container mx-auto px-6 text-center relative z-10">
         {/* Available badge */}
@@ -40,7 +41,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-4"
+            className="text-xl md:text-2xl text-white/60 mb-4 tracking-wide"
           >
             Hey there! I'm
           </motion.h2>
@@ -49,7 +50,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl font-bold gradient-text mb-4"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight"
           >
             <TypingAnimation words={titles} />
           </motion.h1>
@@ -58,7 +59,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-xl md:text-2xl text-muted-foreground mb-8"
+            className="text-lg md:text-xl text-white/60 mb-12 max-w-2xl mx-auto leading-relaxed"
           >
             Crafting digital experiences with clean code and innovative solutions
           </motion.p>
@@ -75,7 +76,7 @@ export default function HeroSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection("projects")}
-            className="px-8 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all flex items-center gap-2 justify-center"
+            className="px-8 py-3 bg-white text-black rounded-lg hover:bg-white/90 transition-all duration-300 flex items-center gap-2 justify-center font-medium animate-glow-pulse"
             data-testid="button-view-work"
           >
             <Eye size={20} />
@@ -85,7 +86,7 @@ export default function HeroSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 border border-border text-foreground rounded-lg hover:bg-secondary transition-all flex items-center gap-2 justify-center"
+            className="px-8 py-3 glassmorphism text-white rounded-lg hover:bg-white/20 transition-all duration-300 flex items-center gap-2 justify-center font-medium"
             data-testid="button-download-cv"
           >
             <Download size={20} />
@@ -105,7 +106,7 @@ export default function HeroSection() {
             href="https://github.com/Ashlipogi"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="text-white/60 hover:text-white transition-all duration-300"
             data-testid="link-github"
           >
             <Github size={24} />
@@ -115,7 +116,7 @@ export default function HeroSection() {
             href="https://www.linkedin.com/in/john-ashley-villanueva-29b607265"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-primary transition-colors"
+            className="text-white/60 hover:text-white transition-all duration-300"
             data-testid="link-linkedin"
           >
             <Linkedin size={24} />

@@ -4,82 +4,82 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(222, 84%, 5%);
-  --foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 8%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --popover: hsl(222, 84%, 8%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --primary: hsl(262, 83%, 58%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(217, 32%, 17%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217, 32%, 17%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --accent: hsl(217, 32%, 17%);
-  --accent-foreground: hsl(210, 40%, 98%);
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 0%, 0.5);
+  --card-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 0%, 0.8);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --primary: hsl(0, 0%, 100%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 100%, 0.1);
+  --secondary-foreground: hsl(0, 0%, 100%, 0.9);
+  --muted: hsl(0, 0%, 100%, 0.05);
+  --muted-foreground: hsl(0, 0%, 100%, 0.6);
+  --accent: hsl(0, 0%, 100%, 0.1);
+  --accent-foreground: hsl(0, 0%, 100%);
   --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 32%, 17%);
-  --input: hsl(217, 32%, 17%);
-  --ring: hsl(262, 83%, 58%);
-  --chart-1: hsl(262, 83%, 58%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 100%, 0.1);
+  --input: hsl(0, 0%, 100%, 0.05);
+  --ring: hsl(0, 0%, 100%, 0.3);
+  --chart-1: hsl(0, 0%, 100%);
   --chart-2: hsl(159, 78%, 36%);
   --chart-3: hsl(42, 93%, 56%);
   --chart-4: hsl(147, 79%, 42%);
   --chart-5: hsl(341, 75%, 51%);
-  --sidebar: hsl(222, 84%, 8%);
-  --sidebar-foreground: hsl(210, 40%, 98%);
-  --sidebar-primary: hsl(262, 83%, 58%);
-  --sidebar-primary-foreground: hsl(210, 40%, 98%);
-  --sidebar-accent: hsl(217, 32%, 17%);
-  --sidebar-accent-foreground: hsl(210, 40%, 98%);
-  --sidebar-border: hsl(217, 32%, 17%);
-  --sidebar-ring: hsl(262, 83%, 58%);
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --sidebar: hsl(0, 0%, 0%, 0.8);
+  --sidebar-foreground: hsl(0, 0%, 100%);
+  --sidebar-primary: hsl(0, 0%, 100%);
+  --sidebar-primary-foreground: hsl(0, 0%, 0%);
+  --sidebar-accent: hsl(0, 0%, 100%, 0.1);
+  --sidebar-accent-foreground: hsl(0, 0%, 100%);
+  --sidebar-border: hsl(0, 0%, 100%, 0.1);
+  --sidebar-ring: hsl(0, 0%, 100%, 0.3);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-serif: Georgia, serif;
-  --font-mono: Menlo, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, monospace;
   --radius: 0.75rem;
-  --shadow-2xs: 0px 2px 0px 0px hsl(262, 83%, 58% / 0.05);
-  --shadow-xs: 0px 2px 0px 0px hsl(262, 83%, 58% / 0.05);
-  --shadow-sm: 0px 2px 0px 0px hsl(262, 83%, 58% / 0.05), 0px 1px 2px -1px hsl(262, 83%, 58% / 0.10);
-  --shadow: 0px 2px 0px 0px hsl(262, 83%, 58% / 0.05), 0px 1px 2px -1px hsl(262, 83%, 58% / 0.10);
-  --shadow-md: 0px 2px 0px 0px hsl(262, 83%, 58% / 0.05), 0px 2px 4px -1px hsl(262, 83%, 58% / 0.10);
-  --shadow-lg: 0px 2px 0px 0px hsl(262, 83%, 58% / 0.05), 0px 4px 6px -1px hsl(262, 83%, 58% / 0.10);
-  --shadow-xl: 0px 2px 0px 0px hsl(262, 83%, 58% / 0.05), 0px 8px 10px -1px hsl(262, 83%, 58% / 0.10);
-  --shadow-2xl: 0px 2px 0px 0px hsl(262, 83%, 58% / 0.05);
+  --shadow-2xs: 0px 2px 0px 0px hsl(0, 0%, 100% / 0.05);
+  --shadow-xs: 0px 2px 0px 0px hsl(0, 0%, 100% / 0.05);
+  --shadow-sm: 0px 2px 0px 0px hsl(0, 0%, 100% / 0.05), 0px 1px 2px -1px hsl(0, 0%, 100% / 0.10);
+  --shadow: 0px 2px 0px 0px hsl(0, 0%, 100% / 0.05), 0px 1px 2px -1px hsl(0, 0%, 100% / 0.10);
+  --shadow-md: 0px 2px 0px 0px hsl(0, 0%, 100% / 0.05), 0px 2px 4px -1px hsl(0, 0%, 100% / 0.10);
+  --shadow-lg: 0px 2px 0px 0px hsl(0, 0%, 100% / 0.05), 0px 4px 6px -1px hsl(0, 0%, 100% / 0.10);
+  --shadow-xl: 0px 2px 0px 0px hsl(0, 0%, 100% / 0.05), 0px 8px 10px -1px hsl(0, 0%, 100% / 0.10);
+  --shadow-2xl: 0px 2px 0px 0px hsl(0, 0%, 100% / 0.05);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
 }
 
 .dark {
-  --background: hsl(222, 84%, 5%);
-  --foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 8%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --popover: hsl(222, 84%, 8%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --primary: hsl(262, 83%, 58%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(217, 32%, 17%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217, 32%, 17%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --accent: hsl(217, 32%, 17%);
-  --accent-foreground: hsl(210, 40%, 98%);
+  --background: hsl(0, 0%, 0%);
+  --foreground: hsl(0, 0%, 100%);
+  --card: hsl(0, 0%, 0%, 0.5);
+  --card-foreground: hsl(0, 0%, 100%);
+  --popover: hsl(0, 0%, 0%, 0.8);
+  --popover-foreground: hsl(0, 0%, 100%);
+  --primary: hsl(0, 0%, 100%);
+  --primary-foreground: hsl(0, 0%, 0%);
+  --secondary: hsl(0, 0%, 100%, 0.1);
+  --secondary-foreground: hsl(0, 0%, 100%, 0.9);
+  --muted: hsl(0, 0%, 100%, 0.05);
+  --muted-foreground: hsl(0, 0%, 100%, 0.6);
+  --accent: hsl(0, 0%, 100%, 0.1);
+  --accent-foreground: hsl(0, 0%, 100%);
   --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 32%, 17%);
-  --input: hsl(217, 32%, 17%);
-  --ring: hsl(262, 83%, 58%);
-  --sidebar: hsl(222, 84%, 8%);
-  --sidebar-foreground: hsl(210, 40%, 98%);
-  --sidebar-primary: hsl(262, 83%, 58%);
-  --sidebar-primary-foreground: hsl(210, 40%, 98%);
-  --sidebar-accent: hsl(217, 32%, 17%);
-  --sidebar-accent-foreground: hsl(210, 40%, 98%);
-  --sidebar-border: hsl(217, 32%, 17%);
-  --sidebar-ring: hsl(262, 83%, 58%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(0, 0%, 100%, 0.1);
+  --input: hsl(0, 0%, 100%, 0.05);
+  --ring: hsl(0, 0%, 100%, 0.3);
+  --sidebar: hsl(0, 0%, 0%, 0.8);
+  --sidebar-foreground: hsl(0, 0%, 100%);
+  --sidebar-primary: hsl(0, 0%, 100%);
+  --sidebar-primary-foreground: hsl(0, 0%, 0%);
+  --sidebar-accent: hsl(0, 0%, 100%, 0.1);
+  --sidebar-accent-foreground: hsl(0, 0%, 100%);
+  --sidebar-border: hsl(0, 0%, 100%, 0.1);
+  --sidebar-ring: hsl(0, 0%, 100%, 0.3);
 }
 
 @layer base {
@@ -99,7 +99,7 @@
 
 @layer components {
   .gradient-text {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
     background-size: 200% 200%;
     animation: gradient 6s ease-in-out infinite;
     -webkit-background-clip: text;
@@ -108,13 +108,92 @@
     color: transparent;
   }
 
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glassmorphism-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .glassmorphism-header {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
   .backdrop-blur {
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .typing-cursor::after {
     content: '|';
     animation: blink 1s infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.6s ease-out forwards;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-slide-left-infinite {
+    animation: slide-left-infinite 20s linear infinite;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 0 30px rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  @keyframes slide-left-infinite {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   @keyframes gradient {

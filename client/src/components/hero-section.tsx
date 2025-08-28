@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Download, Eye } from "lucide-react";
+import { Github, Linkedin, Download, Eye, ChevronDown } from "lucide-react";
 import TypingAnimation from "./ui/typing-animation";
 
 export default function HeroSection() {
@@ -94,11 +94,29 @@ export default function HeroSection() {
           </motion.button>
         </motion.div>
         
-        {/* Social Links */}
+        {/* Scroll Button */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
+          className="flex justify-center mb-8"
+        >
+          <motion.button
+            onClick={() => scrollToSection("about")}
+            className="scroll-indicator glassmorphism p-3 rounded-full text-white/80 hover:text-white hover:bg-white/20 transition-all duration-300"
+            data-testid="scroll-button"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ChevronDown size={24} />
+          </motion.button>
+        </motion.div>
+        
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
           className="flex justify-center space-x-6"
         >
           <motion.a

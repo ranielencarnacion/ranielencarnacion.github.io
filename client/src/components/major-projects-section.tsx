@@ -6,7 +6,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 export default function MajorProjectsSection() {
   const { isDarkMode } = useTheme();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -166,19 +166,16 @@ export default function MajorProjectsSection() {
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-8 sm:gap-12"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 50 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ 
                 scale: 1.02,
-                y: -10,
+                y: -5,
                 transition: { duration: 0.3 }
               }}
               className="glassmorphism-enhanced rounded-2xl overflow-hidden group cursor-pointer transition-all-smooth hover:shadow-2xl"

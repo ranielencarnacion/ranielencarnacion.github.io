@@ -186,7 +186,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             className="glassmorphism-soft p-6 sm:p-8 rounded-2xl"
           >
-            <h3 className={`text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center lg:text-left ${
+            <h3 className={`text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center ${
               isDarkMode ? 'text-white' : 'text-black'
             }`}>Contact Information</h3>
             
@@ -245,7 +245,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
             className="glassmorphism-soft p-6 sm:p-8 rounded-2xl"
           >
-            <h3 className={`text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center lg:text-left ${
+            <h3 className={`text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center ${
               isDarkMode ? 'text-white' : 'text-black'
             }`}>Send Message</h3>
             

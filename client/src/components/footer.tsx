@@ -1,32 +1,36 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Facebook, Instagram } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Footer() {
+  const { isDarkMode } = useTheme();
   const socialLinks = [
     {
       name: "GitHub",
-      url: "https://github.com/Ashlipogi", 
+      url: "https://github.com/ranielencarnacion", 
       icon: <Github size={24} />
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/john-ashley-villanueva-29b607265",
+      url: "https://www.linkedin.com/in/encarnacion-raniel-b78416263",
       icon: <Linkedin size={24} />
     },
     {
       name: "Facebook", 
-      url: "https://www.facebook.com/AZHLEEH",
+      url: "https://www.facebook.com/raniel.encarnacion.2024/",
       icon: <Facebook size={24} />
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/ashzyed/",
+      url: "https://x.com/rainraingoaweyn",
       icon: <Instagram size={24} />
     }
   ];
 
   return (
-    <footer className="py-12 border-t border-border">
+    <footer className={`py-12 border-t ${
+      isDarkMode ? 'border-border bg-black' : 'border-gray-300 bg-white'
+    }`}>
       <div className="container mx-auto px-6">
         <div className="text-center">
           <motion.div
@@ -43,7 +47,9 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className={`transition-colors ${
+                  isDarkMode ? 'text-muted-foreground hover:text-primary' : 'text-gray-600 hover:text-black'
+                }`}
                 data-testid={`footer-social-${link.name.toLowerCase()}`}
               >
                 {link.icon}
@@ -55,9 +61,9 @@ export default function Footer() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-muted-foreground"
+            className={isDarkMode ? 'text-muted-foreground' : 'text-gray-600'}
           >
-            © 2025 John Ashley Villa. All rights reserved.
+            © 2025 Raniel Encarnacion. All rights reserved.
           </motion.p>
         </div>
       </div>

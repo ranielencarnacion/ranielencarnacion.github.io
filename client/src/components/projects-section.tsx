@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Github, ExternalLink } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function ProjectsSection() {
+  const { isDarkMode } = useTheme();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -53,7 +55,7 @@ export default function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className="py-20" ref={ref}>
+    <section id="projects" className={`py-20 ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -61,8 +63,12 @@ export default function ProjectsSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">Major Projects</h2>
-          <p className="text-lg text-muted-foreground">
+          <h2 className={`text-4xl md:text-5xl font-bold mb-4 ${
+            isDarkMode ? 'gradient-text' : 'text-black'
+          }`}>Major Projects</h2>
+          <p className={`text-lg ${
+            isDarkMode ? 'text-muted-foreground' : 'text-black/70'
+          }`}>
             Comprehensive projects showcasing full-stack development capabilities and system integration
           </p>
         </motion.div>
@@ -86,15 +92,25 @@ export default function ProjectsSection() {
                     alt={`${project.title} screenshot`}
                     className="w-full h-48 object-cover rounded-lg mb-6"
                   />
-                  <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">{project.title}</h3>
-                  <p className="text-lg text-white/80 mb-4">{project.subtitle}</p>
-                  <p className="text-white/60 mb-6 leading-relaxed">
+                  <h3 className={`text-2xl font-bold mb-2 tracking-tight ${
+                    isDarkMode ? 'text-white' : 'text-black'
+                  }`}>{project.title}</h3>
+                  <p className={`text-lg mb-4 ${
+                    isDarkMode ? 'text-white/80' : 'text-black/80'
+                  }`}>{project.subtitle}</p>
+                  <p className={`mb-6 leading-relaxed ${
+                    isDarkMode ? 'text-white/60' : 'text-black/60'
+                  }`}>
                     {project.description}
                   </p>
                   
                   <div className="mb-6">
-                    <h4 className="font-bold text-white mb-3">Highlights:</h4>
-                    <ul className="text-sm text-white/60 space-y-2">
+                    <h4 className={`font-bold mb-3 ${
+                      isDarkMode ? 'text-white' : 'text-black'
+                    }`}>Highlights:</h4>
+                    <ul className={`text-sm space-y-2 ${
+                      isDarkMode ? 'text-white/60' : 'text-black/60'
+                    }`}>
                       {project.highlights.map((highlight, i) => (
                         <li key={i}>• {highlight}</li>
                       ))}
@@ -103,7 +119,9 @@ export default function ProjectsSection() {
                   
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech) => (
-                      <span key={tech} className="px-3 py-1 glassmorphism text-white/80 rounded-full text-sm">
+                      <span key={tech} className={`px-3 py-1 glassmorphism rounded-full text-sm ${
+                        isDarkMode ? 'text-white/80' : 'text-black/80'
+                      }`}>
                         {tech}
                       </span>
                     ))}
@@ -113,7 +131,11 @@ export default function ProjectsSection() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="px-6 py-2 bg-white text-black rounded-lg hover:bg-white/90 transition-all duration-300 flex items-center gap-2 font-medium"
+                      className={`px-6 py-2 rounded-lg transition-all duration-300 flex items-center gap-2 font-medium ${
+                        isDarkMode 
+                          ? 'bg-white text-black hover:bg-white/90'
+                          : 'bg-black text-white hover:bg-black/90'
+                      }`}
                       data-testid={`button-github-${project.title.toLowerCase().split(' ')[0]}`}
                     >
                       <Github size={16} />
@@ -138,8 +160,12 @@ export default function ProjectsSection() {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className={`${project.side === "left" ? "order-1 lg:order-2" : "order-1"}`}
               >
-                <p className="text-sm text-muted-foreground mb-2">{project.period}</p>
-                <button className="text-primary hover:underline mb-4">Explore</button>
+                <p className={`text-sm mb-2 ${
+                  isDarkMode ? 'text-muted-foreground' : 'text-black/60'
+                }`}>{project.period}</p>
+                <button className={`hover:underline mb-4 ${
+                  isDarkMode ? 'text-primary' : 'text-blue-600'
+                }`}>Explore</button>
               </motion.div>
             </div>
           ))}

@@ -98,6 +98,15 @@
 }
 
 @layer components {
+  .portfolio-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+
   .gradient-text {
     background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
     background-size: 200% 200%;
@@ -256,6 +265,251 @@
     }
     60% {
       transform: translateY(-5px);
+    }
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes sparkle {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Professional portfolio animations */
+  @keyframes slideInFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes staggeredFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes iconBounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    40% {
+      transform: translateY(-8px) scale(1.1);
+    }
+    60% {
+      transform: translateY(-4px) scale(1.05);
+    }
+  }
+
+  @keyframes textReveal {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+      filter: blur(5px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes profileImageHover {
+    0% {
+      transform: scale(1) rotate(0deg);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.4), 0 0 80px rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  /* Animation classes */
+  .animate-slide-in-left {
+    animation: slideInFromLeft 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInFromRight 0.8s ease-out forwards;
+  }
+
+  .animate-staggered-fade-in {
+    animation: staggeredFadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .animate-icon-bounce {
+    animation: iconBounce 2s ease-in-out infinite;
+  }
+
+  .animate-text-reveal {
+    animation: textReveal 1s ease-out forwards;
+  }
+
+  .animate-profile-hover:hover {
+    animation: profileImageHover 0.3s ease-out forwards;
+  }
+
+  /* Enhanced glassmorphism variants */
+  .glassmorphism-enhanced {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  /* Available for work badge specific styling */
+  .available-badge {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.025em;
+    word-spacing: 0.1em;
+  }
+
+  .glassmorphism-soft {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Gradient text effects - White Theme */
+  .gradient-text-blue {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease-in-out infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .gradient-text-warm {
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 50%, #cbd5e1 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease-in-out infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .gradient-text-white {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease-in-out infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Professional transitions */
+  .transition-all-smooth {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .transition-transform-smooth {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 640px) {
+    .glassmorphism-enhanced {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+    }
+    
+    .glassmorphism-soft {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    
+    /* Reduce motion for better mobile performance */
+    .animate-float {
+      animation: none;
+    }
+    
+    .animate-pulse-glow {
+      animation: none;
+    }
+    
+    /* Optimize font rendering on mobile */
+    body {
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    
+    /* Improve touch targets */
+    button, a {
+      min-height: 44px;
+      touch-action: manipulation;
+    }
+  }
+
+  /* Tablet optimizations */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .glassmorphism-enhanced {
+      background: rgba(255, 255, 255, 0.12);
     }
   }
 }

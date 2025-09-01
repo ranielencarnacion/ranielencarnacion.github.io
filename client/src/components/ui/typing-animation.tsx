@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 interface TypingAnimationProps {
   words: string[];
@@ -14,31 +13,32 @@ export default function TypingAnimation({ words, className = "" }: TypingAnimati
   useEffect(() => {
     const currentWord = words[currentWordIndex];
     const timeout = setTimeout(() => {
-      if (!isDeleting && currentText === currentWord) {
-        setTimeout(() => setIsDeleting(true), 1500);
-      } else if (isDeleting && currentText === "") {
-        setIsDeleting(false);
-        setCurrentWordIndex((prev) => (prev + 1) % words.length);
-      } else if (isDeleting) {
-        setCurrentText(currentWord.substring(0, currentText.length - 1));
+      if (!isDeleting) {
+        // Typing
+        if (currentText.length < currentWord.length) {
+          setCurrentText(currentWord.slice(0, currentText.length + 1));
+        } else {
+          // Wait before starting to delete
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
       } else {
-        setCurrentText(currentWord.substring(0, currentText.length + 1));
+        // Deleting
+        if (currentText.length > 0) {
+          setCurrentText(currentWord.slice(0, currentText.length - 1));
+        } else {
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }
       }
     }, isDeleting ? 50 : 100);
 
     return () => clearTimeout(timeout);
-  }, [currentText, isDeleting, currentWordIndex, words]);
+  }, [currentText, currentWordIndex, isDeleting, words]);
 
   return (
     <span className={className}>
       {currentText}
-      <motion.span
-        animate={{ opacity: [1, 0, 1] }}
-        transition={{ duration: 0.8, repeat: Infinity }}
-        className="ml-1"
-      >
-        |
-      </motion.span>
+      <span className="animate-blink">|</span>
     </span>
   );
 }

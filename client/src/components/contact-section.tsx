@@ -184,9 +184,9 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8 }}
-            className="glassmorphism-soft p-6 sm:p-8 rounded-2xl"
+            className="glassmorphism-soft p-4 sm:p-6 md:p-8 rounded-2xl"
           >
-            <h3 className={`text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center ${
+            <h3 className={`text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 md:mb-8 text-center px-2 ${
               isDarkMode ? 'text-white' : 'text-black'
             }`}>Contact Information</h3>
             
@@ -243,9 +243,9 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8 }}
-            className="glassmorphism-soft p-6 sm:p-8 rounded-2xl"
+            className="glassmorphism-soft p-4 sm:p-6 md:p-8 rounded-2xl"
           >
-            <h3 className={`text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center ${
+            <h3 className={`text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 md:mb-8 text-center px-2 ${
               isDarkMode ? 'text-white' : 'text-black'
             }`}>Send Message</h3>
             

@@ -358,7 +358,12 @@ export default function MajorProjectsSection() {
                   <img
                     src={currentGallery[currentImageIndex]?.src}
                     alt={currentGallery[currentImageIndex]?.title}
-                    className="max-w-full max-h-[60vh] object-contain"
+                    className="max-w-full max-h-[60vh] object-contain shadow-lg rounded-lg"
+                    onError={(e) => {
+                      console.log('Image failed to load:', currentGallery[currentImageIndex]?.src);
+                      e.currentTarget.src = '/placeholder-image.png';
+                    }}
+                    loading="lazy"
                   />
 
                   {/* Navigation Buttons */}
@@ -415,6 +420,11 @@ export default function MajorProjectsSection() {
                               src={image.src}
                               alt={image.title}
                               className="w-full h-16 object-cover"
+                              onError={(e) => {
+                                console.log('Thumbnail failed to load:', image.src);
+                                e.currentTarget.src = '/placeholder-image.png';
+                              }}
+                              loading="lazy"
                             />
                             <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                               <p className={`text-xs font-medium ${
@@ -452,6 +462,11 @@ export default function MajorProjectsSection() {
                               src={image.src}
                               alt={image.title}
                               className="w-full h-16 object-cover"
+                              onError={(e) => {
+                                console.log('User thumbnail failed to load:', image.src);
+                                e.currentTarget.src = '/placeholder-image.png';
+                              }}
+                              loading="lazy"
                             />
                             <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                               <p className={`text-xs font-medium ${

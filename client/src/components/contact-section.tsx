@@ -178,15 +178,15 @@ export default function ContactSection() {
           </p>
         </motion.div>
         
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8 }}
-            className="glassmorphism-soft p-4 sm:p-6 md:p-8 rounded-2xl"
+            className="glassmorphism-soft p-3 sm:p-4 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl mx-2 sm:mx-0"
           >
-            <h3 className={`text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 md:mb-8 text-center px-2 ${
+            <h3 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-center px-1 sm:px-2 ${
               isDarkMode ? 'text-white' : 'text-black'
             }`}>Contact Information</h3>
             
@@ -202,11 +202,11 @@ export default function ContactSection() {
                     y: -2,
                     transition: { duration: 0.2 }
                   }}
-                  className="glassmorphism-enhanced p-4 sm:p-6 rounded-xl flex items-start space-x-3 sm:space-x-4 group transition-all-smooth hover:shadow-2xl"
+                  className="glassmorphism-enhanced p-3 sm:p-4 md:p-6 rounded-lg sm:rounded-xl flex items-start space-x-2 sm:space-x-3 md:space-x-4 group transition-all-smooth hover:shadow-2xl"
                   data-testid={`contact-info-${info.title.toLowerCase()}`}
                 >
                   <motion.div 
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-white/20 to-gray-300/30 rounded-lg flex items-center justify-center group-hover:from-white/30 group-hover:to-gray-300/40 transition-all duration-300 flex-shrink-0"
+                    className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-r from-white/20 to-gray-300/30 rounded-md sm:rounded-lg flex items-center justify-center group-hover:from-white/30 group-hover:to-gray-300/40 transition-all duration-300 flex-shrink-0"
                     whileHover={{ 
                       scale: 1.1,
                       rotateZ: 5,
@@ -216,17 +216,17 @@ export default function ContactSection() {
                     {info.icon}
                   </motion.div>
                   <div className="flex-1 min-w-0">
-                    <h4 className={`font-bold text-base sm:text-lg mb-1 sm:mb-2 transition-all duration-300 ${
+                    <h4 className={`font-bold text-sm sm:text-base md:text-lg mb-1 transition-all duration-300 ${
                       isDarkMode ? 'text-white group-hover:gradient-text-blue' : 'text-black'
                     }`}>{info.title}</h4>
                     {info.link ? (
-                      <a href={info.link} className={`transition-colors duration-300 text-sm sm:text-base break-words ${
+                      <a href={info.link} className={`transition-colors duration-300 text-xs sm:text-sm md:text-base break-words ${
                         isDarkMode ? 'text-white/70 hover:text-white' : 'text-black/70 hover:text-black'
                       }`}>
                         {info.content}
                       </a>
                     ) : (
-                      <div className={`transition-colors duration-300 text-sm sm:text-base ${
+                      <div className={`transition-colors duration-300 text-xs sm:text-sm md:text-base ${
                         isDarkMode ? 'text-white/70 group-hover:text-white/85' : 'text-black/70 group-hover:text-black/85'
                       }`}>
                         {info.content}
@@ -243,9 +243,9 @@ export default function ContactSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8 }}
-            className="glassmorphism-soft p-4 sm:p-6 md:p-8 rounded-2xl"
+            className="glassmorphism-soft p-3 sm:p-4 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl mx-2 sm:mx-0"
           >
-            <h3 className={`text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 md:mb-8 text-center px-2 ${
+            <h3 className={`text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-center px-1 sm:px-2 ${
               isDarkMode ? 'text-white' : 'text-black'
             }`}>Send Message</h3>
             

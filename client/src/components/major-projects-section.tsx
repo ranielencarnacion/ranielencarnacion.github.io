@@ -142,15 +142,15 @@ export default function MajorProjectsSection() {
 
   return (
     <section id="major-projects" className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
-      <div className="container mx-auto px-6 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className={`text-5xl md:text-6xl font-bold mb-4 tracking-tight ${
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight px-2 sm:px-0 ${
             isDarkMode ? 'gradient-text-white' : 'text-black'
           }`}>
             Major Projects
@@ -158,7 +158,7 @@ export default function MajorProjectsSection() {
           <div className={`w-24 h-1 mx-auto rounded-full mb-4 ${
             isDarkMode ? 'bg-gradient-to-r from-white/80 to-gray-300' : 'bg-gradient-to-r from-black/80 to-gray-600'
           }`} />
-          <p className={`text-xl leading-relaxed font-light ${
+          <p className={`text-base sm:text-lg lg:text-xl leading-relaxed font-light px-4 sm:px-0 ${
             isDarkMode ? 'text-white/85' : 'text-black/85'
           }`}>
             Discover how I bring ideas to life through code and creativity
@@ -170,7 +170,7 @@ export default function MajorProjectsSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid lg:grid-cols-2 gap-12"
+          className="grid lg:grid-cols-2 gap-8 sm:gap-12"
         >
           {projects.map((project, index) => (
             <motion.div
@@ -246,37 +246,37 @@ export default function MajorProjectsSection() {
               </div>
 
               {/* Project Content */}
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <div className="flex items-center gap-2 mb-3">
                   <Calendar className="text-blue-300" size={16} />
                   <span className={`text-sm font-medium ${isDarkMode ? 'text-white/60' : 'text-black/60'}`}>{project.period}</span>
                 </div>
 
-                <h3 className={`text-3xl font-bold mb-4 tracking-tight ${isDarkMode ? 'text-white' : 'text-black'}`}>{project.title}</h3>
-                <p className={`text-lg mb-4 ${isDarkMode ? 'text-white/80' : 'text-black/80'}`}>{project.subtitle}</p>
-                <p className={`mb-6 leading-relaxed ${isDarkMode ? 'text-white/60' : 'text-black/60'}`}>{project.description}</p>
+                <h3 className={`text-xl sm:text-2xl lg:text-3xl font-bold mb-3 sm:mb-4 tracking-tight leading-tight ${isDarkMode ? 'text-white' : 'text-black'}`}>{project.title}</h3>
+                <p className={`text-base sm:text-lg mb-3 sm:mb-4 ${isDarkMode ? 'text-white/80' : 'text-black/80'}`}>{project.subtitle}</p>
+                <p className={`mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base ${isDarkMode ? 'text-white/60' : 'text-black/60'}`}>{project.description}</p>
 
                 {/* Highlights */}
-                <div className="mb-6">
-                  <h4 className={`font-bold mb-3 ${isDarkMode ? 'text-white' : 'text-black'}`}>Key Features:</h4>
-                  <ul className={`text-sm space-y-2 ${isDarkMode ? 'text-white/60' : 'text-black/60'}`}>
+                <div className="mb-4 sm:mb-6">
+                  <h4 className={`font-bold mb-2 sm:mb-3 text-sm sm:text-base ${isDarkMode ? 'text-white' : 'text-black'}`}>Key Features:</h4>
+                  <ul className={`text-xs sm:text-sm space-y-1 sm:space-y-2 ${isDarkMode ? 'text-white/60' : 'text-black/60'}`}>
                     {project.highlights.map((highlight, i) => (
                       <li key={i} className="flex items-start">
-                        <span className="text-blue-300 mr-2">•</span>
-                        <span>{highlight}</span>
+                        <span className="text-blue-300 mr-2 flex-shrink-0">•</span>
+                        <span className="leading-relaxed">{highlight}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Technologies */}
-                <div className="mb-6">
+                <div className="mb-4 sm:mb-6">
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, i) => (
                       <motion.span
                         key={i}
                         whileHover={{ scale: 1.05 }}
-                        className={`px-3 py-1 rounded-full text-xs font-medium border transition-all duration-300 ${
+                        className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium border transition-all duration-300 ${
                           isDarkMode 
                             ? 'bg-white/10 text-white/80 border-white/20 hover:bg-white/15'
                             : 'bg-black/10 text-black/80 border-black/20 hover:bg-black/15'
@@ -300,7 +300,7 @@ export default function MajorProjectsSection() {
                         window.open(project.demoLink, '_blank');
                       }
                     }}
-                    className={`flex-1 font-semibold py-3 px-6 rounded-full transition-all-smooth shadow-lg border flex items-center justify-center gap-2 ${
+                    className={`flex-1 font-semibold py-3 px-4 sm:px-6 rounded-full transition-all-smooth shadow-lg border flex items-center justify-center gap-2 text-sm sm:text-base ${
                       isDarkMode 
                         ? 'bg-gradient-to-r from-white to-gray-100 text-black hover:from-gray-100 hover:to-white hover:shadow-white/25 border-white/20' 
                         : 'bg-gradient-to-r from-white to-gray-100 text-black hover:from-gray-100 hover:to-white hover:shadow-white/25 border-white/20'

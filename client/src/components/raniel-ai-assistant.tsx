@@ -89,7 +89,7 @@ export default function RanielAIAssistant() {
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className={`fixed bottom-24 right-6 w-96 h-[525px] rounded-2xl shadow-2xl z-50 overflow-hidden ${
+            className={`fixed bottom-20 sm:bottom-24 right-4 sm:right-6 w-[calc(100vw-2rem)] sm:w-96 max-w-md h-[525px] rounded-2xl shadow-2xl z-50 overflow-hidden ${
               isDarkMode ? 'bg-black border border-gray-700' : 'bg-white border border-gray-200'
             }`}
           >

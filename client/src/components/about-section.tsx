@@ -219,11 +219,11 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-16"
+          className="text-center mt-16 flex justify-center"
         >
-          <div className="glassmorphism-soft p-8 rounded-2xl max-w-2xl mx-auto">
+          <div className="glassmorphism-soft p-6 sm:p-8 rounded-2xl max-w-2xl mx-auto">
             <motion.p 
-              className={`text-lg mb-6 leading-relaxed ${
+              className={`text-base sm:text-lg mb-6 leading-relaxed ${
                 isDarkMode ? 'text-white/80' : 'text-black/80'
               }`}
               animate={{ opacity: [0.8, 1, 0.8] }}
@@ -231,29 +231,31 @@ export default function AboutSection() {
             >
               Passionate about creating interactive and visually appealing web experiences that bring ideas to life on the digital canvas.
             </motion.p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block"
-            >
-              <a 
-                href="#contact" 
-                className={`inline-flex items-center px-8 py-3 font-semibold rounded-full transition-all-smooth shadow-lg border ${
-                  isDarkMode 
-                    ? 'bg-gradient-to-r from-white to-gray-100 text-black hover:from-gray-100 hover:to-white hover:shadow-white/25 border-white/20'
-                    : 'bg-gradient-to-r from-black to-gray-800 text-white hover:from-gray-800 hover:to-black hover:shadow-black/25 border-black/20'
-                }`}
+            <div className="flex justify-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block"
               >
-                Let's Connect
-                <motion.span
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="ml-2"
+                <a 
+                  href="#contact" 
+                  className={`inline-flex items-center px-6 sm:px-8 py-3 font-semibold rounded-full transition-all-smooth shadow-lg border text-sm sm:text-base ${
+                    isDarkMode 
+                      ? 'bg-gradient-to-r from-white to-gray-100 text-black hover:from-gray-100 hover:to-white hover:shadow-white/25 border-white/20'
+                      : 'bg-gradient-to-r from-black to-gray-800 text-white hover:from-gray-800 hover:to-black hover:shadow-black/25 border-black/20'
+                  }`}
                 >
-                  →
-                </motion.span>
-              </a>
-            </motion.div>
+                  Let's Connect
+                  <motion.span
+                    animate={{ x: [0, 5, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    className="ml-2"
+                  >
+                    →
+                  </motion.span>
+                </a>
+              </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

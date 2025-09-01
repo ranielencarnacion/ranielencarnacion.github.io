@@ -65,8 +65,25 @@ export default function RanielAIAssistant() {
   };
 
   const handleQuestionClick = (question: string) => {
-    setInputMessage(question);
-    handleSendMessage();
+    const newMessage = {
+      id: messages.length + 1,
+      text: question,
+      isBot: false,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+
+    setMessages(prev => [...prev, newMessage]);
+
+    // Bot response
+    setTimeout(() => {
+      const botResponse = {
+        id: messages.length + 2,
+        text: botResponses[question as keyof typeof botResponses] || "I'm sorry, I don't have information about that specific topic. Please try one of the suggested questions or ask about Raniel's background, skills, projects, or contact information.",
+        isBot: true,
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+      setMessages(prev => [...prev, botResponse]);
+    }, 1000);
   };
 
   const clearChat = () => {
@@ -138,7 +155,7 @@ export default function RanielAIAssistant() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 p-4 overflow-y-auto h-64">
+            <div className="flex-1 p-4 overflow-y-auto" style={{ height: messages.length === 1 ? '160px' : '280px' }}>
               {messages.map((message) => (
                 <div
                   key={message.id}
@@ -164,16 +181,16 @@ export default function RanielAIAssistant() {
 
             {/* Predefined Questions */}
             {messages.length === 1 && (
-              <div className={`p-4 border-t max-h-64 overflow-y-auto ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+              <div className={`p-4 border-t max-h-32 overflow-y-auto ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                 <p className={`text-sm mb-3 font-semibold ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   Questions about Raniel:
                 </p>
-                <div className="space-y-2">
-                  {predefinedQuestions.map((question, index) => (
+                <div className="grid grid-cols-1 gap-2">
+                  {predefinedQuestions.slice(0, 4).map((question, index) => (
                     <button
                       key={index}
                       onClick={() => handleQuestionClick(question)}
-                      className={`w-full text-left p-3 rounded-lg text-sm transition-colors ${
+                      className={`w-full text-left p-2 rounded-lg text-xs transition-colors hover:scale-[1.02] ${
                         isDarkMode
                           ? 'bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-600'
                           : 'bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300'
@@ -183,6 +200,23 @@ export default function RanielAIAssistant() {
                     </button>
                   ))}
                 </div>
+                {predefinedQuestions.length > 4 && (
+                  <div className="mt-2 grid grid-cols-2 gap-2">
+                    {predefinedQuestions.slice(4).map((question, index) => (
+                      <button
+                        key={index + 4}
+                        onClick={() => handleQuestionClick(question)}
+                        className={`w-full text-left p-2 rounded-lg text-xs transition-colors hover:scale-[1.02] ${
+                          isDarkMode
+                            ? 'bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-600'
+                            : 'bg-gray-100 hover:bg-gray-200 text-gray-700 border border-gray-300'
+                        }`}
+                      >
+                        {question}
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
             )}
 

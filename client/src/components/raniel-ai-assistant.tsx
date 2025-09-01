@@ -229,7 +229,7 @@ export default function RanielAIAssistant() {
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                   placeholder="Type your message..."
-                  className={`flex-1 p-2 rounded-lg border text-sm ${
+                  className={`flex-1 p-3 rounded-lg border ${
                     isDarkMode
                       ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-400'
                       : 'bg-white border-gray-300 text-black placeholder-gray-500'
@@ -237,9 +237,9 @@ export default function RanielAIAssistant() {
                 />
                 <button
                   onClick={handleSendMessage}
-                  className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                  className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
                 >
-                  <Send size={16} />
+                  <Send size={18} />
                 </button>
               </div>
             </div>

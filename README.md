@@ -1,3 +1,5 @@
+Click to open > https://ranielencarnacion.github.io/
+
 # Raniel Encarnacion - Portfolio Website
 I'm a 4th Year college studying Information Systems, and I've been learning web development for about 2 years now. This portfolio showcases some of the projects I've worked on and gives you a glimpse into who I am beyond just coding.
 
@@ -79,9 +81,8 @@ This is a static website that can be deployed to:
 - Vercel
 - Any static hosting service
 
-## Developer
-
-**Raniel Encarnacion** - Professional Web Developer
+## Contact the Developer
+**Raniel Encarnacion** 
 - Email: lumawigraniel@gmail.com
 - GitHub: [@ranielencarnacion](https://github.com/ranielencarnacion)
 - LinkedIn: [Raniel Encarnacion](https://linkedin.com/in/encarnacion-raniel-b78416263)

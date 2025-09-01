@@ -100,6 +100,5 @@ export const PROJECTS_DATA: Project[] = [
   }
 ];
 
-// Gallery organization helpers
 export const ADMIN_FEATURE_INDICES = [0, 1, 2, 3, 4, 7];
 export const USER_FEATURE_INDICES = [5, 6, 8];

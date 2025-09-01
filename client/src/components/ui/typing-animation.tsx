@@ -14,15 +14,12 @@ export default function TypingAnimation({ words, className = "" }: TypingAnimati
     const currentWord = words[currentWordIndex];
     const timeout = setTimeout(() => {
       if (!isDeleting) {
-        // Typing
         if (currentText.length < currentWord.length) {
           setCurrentText(currentWord.slice(0, currentText.length + 1));
         } else {
-          // Wait before starting to delete
           setTimeout(() => setIsDeleting(true), 2000);
         }
       } else {
-        // Deleting
         if (currentText.length > 0) {
           setCurrentText(currentWord.slice(0, currentText.length - 1));
         } else {

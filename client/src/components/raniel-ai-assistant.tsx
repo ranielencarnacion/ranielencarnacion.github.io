@@ -48,7 +48,6 @@ export default function RanielAIAssistant() {
 
     setMessages(prev => [...prev, newMessage]);
 
-    // Bot response
     setTimeout(() => {
       const botResponse = {
         id: messages.length + 2,

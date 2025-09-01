@@ -8,7 +8,6 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Initialize theme from localStorage or default to dark
   const [isDarkMode, setIsDarkMode] = useState(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme-preference');
@@ -21,14 +20,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const newTheme = !isDarkMode;
     setIsDarkMode(newTheme);
     
-    // Persist theme preference
     if (typeof window !== 'undefined') {
       localStorage.setItem('theme-preference', newTheme ? 'dark' : 'light');
     }
   };
 
   useEffect(() => {
-    // Apply theme to document root
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
       document.documentElement.classList.remove('light');

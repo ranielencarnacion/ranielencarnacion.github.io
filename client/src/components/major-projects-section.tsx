@@ -105,7 +105,6 @@ export default function MajorProjectsSection() {
               {/* Project Image */}
               <div className="h-64 relative overflow-hidden">
                 {index === 2 ? (
-                  // ESCafe project background (at index 2)
                   <div 
                     className="absolute inset-0 w-full h-full"
                     style={{
@@ -116,7 +115,6 @@ export default function MajorProjectsSection() {
                     }}
                   />
                 ) : index === 3 ? (
-                  // Personal Portfolio project background (at index 3)
                   <div 
                     className="absolute inset-0 w-full h-full"
                     style={{
@@ -127,7 +125,6 @@ export default function MajorProjectsSection() {
                     }}
                   />
                 ) : index === 0 ? (
-                  // System Analysis Design project background
                   <div 
                     className="absolute inset-0 w-full h-full"
                     style={{
@@ -138,7 +135,6 @@ export default function MajorProjectsSection() {
                     }}
                   />
                 ) : index === 1 ? (
-                  // Capstone Project background
                   <div 
                     className="absolute inset-0 w-full h-full"
                     style={{
@@ -149,7 +145,6 @@ export default function MajorProjectsSection() {
                     }}
                   />
                 ) : (
-                  // Other projects gradient background
                   <div className="bg-gradient-to-br from-blue-500/20 to-purple-600/20 h-full">
                     <div className="absolute inset-0 flex items-center justify-center">
                       <motion.div
@@ -282,7 +277,6 @@ export default function MajorProjectsSection() {
                     alt={currentGallery[currentImageIndex]?.title}
                     className="max-w-full max-h-[60vh] object-contain shadow-lg rounded-lg"
                     onError={(e) => {
-                      // Fallback to a different image path
                       const fallbackSrc = '/rm.png';
                       if (e.currentTarget.src !== fallbackSrc) {
                         e.currentTarget.src = fallbackSrc;
@@ -346,7 +340,6 @@ export default function MajorProjectsSection() {
                               alt={image.title}
                               className="w-full h-16 object-cover"
                               onError={(e) => {
-                                // Handle image load failure gracefully
                                 const fallbackSrc = '/rm.png';
                                 if (e.currentTarget.src !== fallbackSrc) {
                                   e.currentTarget.src = fallbackSrc;
@@ -391,7 +384,6 @@ export default function MajorProjectsSection() {
                               alt={image.title}
                               className="w-full h-16 object-cover"
                               onError={(e) => {
-                                // Handle thumbnail load failure
                                 const fallbackSrc = '/rm.png';
                                 if (e.currentTarget.src !== fallbackSrc) {
                                   e.currentTarget.src = fallbackSrc;

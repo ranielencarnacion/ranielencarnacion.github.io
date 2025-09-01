@@ -221,7 +221,7 @@ export default function RanielAIAssistant() {
             )}
 
             {/* Input */}
-            <div className={`p-4 border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+            <div className={`p-3 border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
               <div className="flex gap-2">
                 <input
                   type="text"
@@ -229,7 +229,7 @@ export default function RanielAIAssistant() {
                   onChange={(e) => setInputMessage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                   placeholder="Type your message..."
-                  className={`flex-1 p-3 rounded-lg border ${
+                  className={`flex-1 px-3 py-2 rounded-md border text-sm ${
                     isDarkMode
                       ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-400'
                       : 'bg-white border-gray-300 text-black placeholder-gray-500'
@@ -237,9 +237,9 @@ export default function RanielAIAssistant() {
                 />
                 <button
                   onClick={handleSendMessage}
-                  className="p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                  className="px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
                 >
-                  <Send size={18} />
+                  <Send size={16} />
                 </button>
               </div>
             </div>

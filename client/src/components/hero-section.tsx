@@ -124,7 +124,7 @@ export default function HeroSection() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            href="https://github.com/Ashlipogi"
+            href="https://github.com/ranielencarnacion"
             target="_blank"
             rel="noopener noreferrer"
             className={`p-3 sm:px-4 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center shadow-lg border ${
@@ -140,7 +140,7 @@ export default function HeroSection() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            href="https://www.linkedin.com/in/john-ashley-villanueva-29b607265"
+            href="https://www.linkedin.com/in/encarnacion-raniel-b78416263/"
             target="_blank"
             rel="noopener noreferrer"
             className={`p-3 sm:px-4 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center shadow-lg border ${
@@ -156,7 +156,7 @@ export default function HeroSection() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            href="https://facebook.com/yourprofile"
+            href="https://www.facebook.com/raniel.encarnacion.2024/"
             target="_blank"
             rel="noopener noreferrer"
             className={`p-3 sm:px-4 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center shadow-lg border ${

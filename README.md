@@ -1,6 +1,9 @@
 # Raniel Encarnacion - Portfolio Website
+I'm a 4th Year college studying Information Systems, and I've been learning web development for about 2 years now. This portfolio showcases some of the projects I've worked on and gives you a glimpse into who I am beyond just coding.
 
-A modern, responsive portfolio website showcasing the work and expertise of **Raniel Encarnacion**, a professional web developer. Built with React, TypeScript, and Tailwind CSS.
+
+## What's This About?
+A modern, responsive portfolio website showcasing the work and expertise of **Raniel Encarnacion**, Built with React, TypeScript, and Tailwind CSS.
 
 ## Features
 

@@ -1,4 +1,4 @@
-# Raniel Encarnacion - Professional Portfolio Website
+# Raniel Encarnacion - Portfolio Website
 
 A modern, responsive portfolio website showcasing the work and expertise of **Raniel Encarnacion**, a professional web developer. Built with React, TypeScript, and Tailwind CSS.
 
@@ -71,21 +71,10 @@ The contact form is integrated with Formspree. Messages submitted through the fo
 ## Deployment
 
 This is a static website that can be deployed to:
-- GitHub Pages (configured in this repository)
+- GitHub Pages
 - Netlify
 - Vercel
 - Any static hosting service
-
-### GitHub Pages Setup
-- Automatic deploys happen on pushes to the `main` branch via `.github/workflows/deploy.yml`
-- The site base path is set for Pages: production builds use `/Raniel-Portfolio/`
-- Build output is published from `dist/public`
-
-### Local build commands
-```bash
-npm run build    # build to dist/public
-npm run preview  # preview production build
-```
 
 ## Developer
 

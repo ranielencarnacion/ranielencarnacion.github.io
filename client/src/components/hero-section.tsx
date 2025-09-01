@@ -70,7 +70,7 @@ export default function HeroSection() {
               isDarkMode ? 'text-white/60' : 'text-black/60'
             }`}
           >
-            Welcome to my portfolio, I have acquired the skills and knowledge necessary to make your project a success and see how I bring ideas to life on the web.
+            Welcome to my portfolio! I have acquired the skills and expertise necessary to bring your project vision to life and create exceptional web experiences.
           </motion.p>
         </div>
         

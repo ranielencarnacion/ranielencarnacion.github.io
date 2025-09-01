@@ -315,7 +315,7 @@ export default function MajorProjectsSection() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Gallery Modal */}

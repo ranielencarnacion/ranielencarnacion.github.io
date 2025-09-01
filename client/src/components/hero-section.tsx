@@ -35,7 +35,7 @@ export default function HeroSection() {
           }`}
         >
           <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 sm:mr-3 animate-pulse shadow-lg" style={{ boxShadow: '0 0 8px rgba(34, 197, 94, 0.8)' }}></span>
-          <span className="tracking-wide">Available for work</span>
+          <span className="tracking-wide">Available for new opportunities</span>
         </motion.div>
         
         {/* Main content */}

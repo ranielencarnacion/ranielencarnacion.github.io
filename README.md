@@ -4,10 +4,10 @@ Click to open > https://ranielencarnacion.github.io/
 
 🚀 **Live at: https://ranielencarnacion.github.io/**
 
-I'm a 4th Year college studying Information Systems, and I've been learning web development for about 2 years now. This portfolio showcases some of the projects I've worked on and gives you a glimpse into who I am beyond just coding.
+Hey! I'm a 4th year Information Systems student who got bit by the web development bug about 2 years ago. This portfolio is basically my digital diary of projects, mistakes, and those "aha!" moments that make coding so addictive.
 
 ## What's This About?
-A modern, responsive portfolio website showcasing the work and expertise of **Raniel Encarnacion**, Built with React, TypeScript, and Tailwind CSS.
+This is my personal portfolio where I show off the stuff I've built while learning web development. Started simple with HTML/CSS, now I'm playing with React and TypeScript (still figuring out some of the advanced stuff, but hey, we're getting there!).
 
 ## Features
 
@@ -16,9 +16,9 @@ A modern, responsive portfolio website showcasing the work and expertise of **Ra
 - **Contact Form**: Integrated with Formspree for email notifications
 - **Interactive Sections**: Hero, About, Skills, Education, Certifications, Major Projects, and Contact
 - **Project Gallery**: Interactive modal galleries showcasing system screenshots
-- **AI Assistant**: Built-in chatbot for portfolio inquiries
+- **AI Assistant**: Added a chatbot because why not? (Still tweaking it)
 - **Dark/Light Mode**: Theme switching capability
-- **Professional Branding**: Custom logo and professional presentation
+- **Personal Touch**: Tried to make it feel like me, not just another template
 
 ## Tech Stack
 

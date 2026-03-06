@@ -12,7 +12,7 @@ export default function Footer() {
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/encarnacion-raniel-b78416263",
+      url: "https://www.linkedin.com/in/raniel-encarnacion-b78416263/",
       icon: <Linkedin size={24} />
     },
     {

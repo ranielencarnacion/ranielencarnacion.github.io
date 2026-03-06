@@ -62,6 +62,36 @@ export default function MajorProjectsSection() {
   );
   const currentGallery = currentProject?.gallery || [];
 
+  const isCapstoneProject = currentProject?.title === "Capstone Project - ECA MIS General Mobile Inventory System";
+
+  const capstoneGroups = useMemo(() => {
+    if (!isCapstoneProject) {
+      return null;
+    }
+
+    const isAdmin = (imgSrc: string) => imgSrc.includes("/ADMIN/");
+    const isUser = (imgSrc: string) => imgSrc.includes("/USER/");
+    const isMobile = (imgTitle: string, imgSrc: string) =>
+      imgTitle.toLowerCase().includes("mobile") || imgSrc.toLowerCase().includes("/mobile ");
+
+    const withIndex = currentGallery.map((image, index) => ({ image, index }));
+
+    const adminWeb = withIndex.filter(({ image }) => isAdmin(image.src) && !isMobile(image.title, image.src));
+    const adminMobile = withIndex.filter(({ image }) => isAdmin(image.src) && isMobile(image.title, image.src));
+    const userWeb = withIndex.filter(({ image }) => isUser(image.src) && !isMobile(image.title, image.src));
+    const userMobile = withIndex.filter(({ image }) => isUser(image.src) && isMobile(image.title, image.src));
+
+    const misc = withIndex.filter(({ image }) => !isAdmin(image.src) && !isUser(image.src));
+
+    return {
+      misc,
+      adminWeb,
+      adminMobile,
+      userWeb,
+      userMobile
+    };
+  }, [currentGallery, isCapstoneProject]);
+
   return (
     <section id="major-projects" className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
@@ -138,8 +168,8 @@ export default function MajorProjectsSection() {
                   <div 
                     className="absolute inset-0 w-full h-full"
                     style={{
-                      backgroundImage: `url('/mobile inventory/Landing page.png')`,
-                      backgroundSize: 'cover',
+                      backgroundImage: `url('/mobile inventory/SYSTEM IMAGES/LANDING PAGE.png')`,
+                      backgroundSize: 'contain',
                       backgroundPosition: 'center',
                       backgroundRepeat: 'no-repeat'
                     }}
@@ -208,7 +238,7 @@ export default function MajorProjectsSection() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => {
-                      if (project.title === "System Analysis Design - ECA MIS IT Service Management Ticketing System") {
+                      if (project.gallery && project.gallery.length > 0) {
                         openGallery(project.title);
                       } else if (project.demoLink) {
                         window.open(project.demoLink, '_blank');
@@ -275,7 +305,7 @@ export default function MajorProjectsSection() {
                   <img
                     src={currentGallery[currentImageIndex]?.src}
                     alt={currentGallery[currentImageIndex]?.title}
-                    className="max-w-full max-h-[60vh] object-contain shadow-lg rounded-lg"
+                    className="max-w-[90%] max-h-[50vh] object-contain shadow-lg rounded-lg"
                     onError={(e) => {
                       const fallbackSrc = '/rm.png';
                       if (e.currentTarget.src !== fallbackSrc) {
@@ -318,93 +348,299 @@ export default function MajorProjectsSection() {
                   <h4 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>System Features</h4>
                 </div>
                 <div className="flex-1 overflow-y-auto p-4 space-y-4 max-h-64 lg:max-h-none">
-                  {/* Admin Section */}
-                  <div>
-                    <h5 className={`text-sm font-semibold mb-2 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>Admin Features</h5>
-                    <div className="space-y-2">
-                      {currentGallery.filter((_, index) => ADMIN_FEATURE_INDICES.includes(index)).map((image, filteredIndex) => {
-                        const originalIndex = ADMIN_FEATURE_INDICES[filteredIndex];
-                        return (
-                          <motion.div
-                            key={originalIndex}
-                            whileHover={{ scale: 1.02 }}
-                            onClick={() => setCurrentImageIndex(originalIndex)}
-                            className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
-                              originalIndex === currentImageIndex 
-                                ? 'border-blue-500 shadow-lg' 
-                                : isDarkMode ? 'border-gray-600 hover:border-gray-500' : 'border-gray-200 hover:border-gray-300'
-                            }`}
-                          >
-                            <img
-                              src={image.src}
-                              alt={image.title}
-                              className="w-full h-16 object-cover"
-                              onError={(e) => {
-                                const fallbackSrc = '/rm.png';
-                                if (e.currentTarget.src !== fallbackSrc) {
-                                  e.currentTarget.src = fallbackSrc;
-                                }
-                              }}
-                              loading="lazy"
-                            />
-                            <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
-                              <p className={`text-xs font-medium ${
-                                originalIndex === currentImageIndex 
-                                  ? 'text-blue-600' 
-                                  : isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                              }`}>
-                                {image.title}
-                              </p>
-                            </div>
-                          </motion.div>
-                        );
-                      })}
-                    </div>
-                  </div>
+                  {isCapstoneProject && capstoneGroups ? (
+                    <>
+                      {capstoneGroups.misc.length > 0 && (
+                        <div>
+                          <h5 className={`text-sm font-semibold mb-2 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`}>Pages</h5>
+                          <div className="space-y-2">
+                            {capstoneGroups.misc.map(({ image, index }) => (
+                              <motion.div
+                                key={index}
+                                whileHover={{ scale: 1.02 }}
+                                onClick={() => setCurrentImageIndex(index)}
+                                className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
+                                  index === currentImageIndex
+                                    ? 'border-purple-500 shadow-lg'
+                                    : isDarkMode ? 'border-gray-600 hover:border-gray-500' : 'border-gray-200 hover:border-gray-300'
+                                }`}
+                              >
+                                <img
+                                  src={image.src}
+                                  alt={image.title}
+                                  className="w-full h-16 object-cover"
+                                  onError={(e) => {
+                                    const fallbackSrc = '/rm.png';
+                                    if (e.currentTarget.src !== fallbackSrc) {
+                                      e.currentTarget.src = fallbackSrc;
+                                    }
+                                  }}
+                                  loading="lazy"
+                                />
+                                <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                                  <p className={`text-xs font-medium ${
+                                    index === currentImageIndex
+                                      ? (isDarkMode ? 'text-purple-300' : 'text-purple-600')
+                                      : isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                                  }`}>
+                                    {image.title}
+                                  </p>
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
 
-                  {/* User Section */}
-                  <div>
-                    <h5 className={`text-sm font-semibold mb-2 ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>User Features</h5>
-                    <div className="space-y-2">
-                      {currentGallery.filter((_, index) => USER_FEATURE_INDICES.includes(index)).map((image, filteredIndex) => {
-                        const originalIndex = USER_FEATURE_INDICES[filteredIndex];
-                        return (
-                          <motion.div
-                            key={originalIndex}
-                            whileHover={{ scale: 1.02 }}
-                            onClick={() => setCurrentImageIndex(originalIndex)}
-                            className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
-                              originalIndex === currentImageIndex 
-                                ? 'border-blue-500 shadow-lg' 
-                                : isDarkMode ? 'border-gray-600 hover:border-gray-500' : 'border-gray-200 hover:border-gray-300'
-                            }`}
-                          >
-                            <img
-                              src={image.src}
-                              alt={image.title}
-                              className="w-full h-16 object-cover"
-                              onError={(e) => {
-                                const fallbackSrc = '/rm.png';
-                                if (e.currentTarget.src !== fallbackSrc) {
-                                  e.currentTarget.src = fallbackSrc;
-                                }
-                              }}
-                              loading="lazy"
-                            />
-                            <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
-                              <p className={`text-xs font-medium ${
-                                originalIndex === currentImageIndex 
-                                  ? 'text-green-600' 
-                                  : isDarkMode ? 'text-gray-300' : 'text-gray-700'
-                              }`}>
-                                {image.title}
-                              </p>
-                            </div>
-                          </motion.div>
-                        );
-                      })}
-                    </div>
-                  </div>
+                      <div>
+                        <h5 className={`text-sm font-semibold mb-2 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>Admin (Web)</h5>
+                        <div className="space-y-2">
+                          {capstoneGroups.adminWeb.map(({ image, index }) => (
+                            <motion.div
+                              key={index}
+                              whileHover={{ scale: 1.02 }}
+                              onClick={() => setCurrentImageIndex(index)}
+                              className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
+                                index === currentImageIndex
+                                  ? 'border-blue-500 shadow-lg'
+                                  : isDarkMode ? 'border-gray-600 hover:border-gray-500' : 'border-gray-200 hover:border-gray-300'
+                              }`}
+                            >
+                              <img
+                                src={image.src}
+                                alt={image.title}
+                                className="w-full h-16 object-cover"
+                                onError={(e) => {
+                                  const fallbackSrc = '/rm.png';
+                                  if (e.currentTarget.src !== fallbackSrc) {
+                                    e.currentTarget.src = fallbackSrc;
+                                  }
+                                }}
+                                loading="lazy"
+                              />
+                              <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                                <p className={`text-xs font-medium ${
+                                  index === currentImageIndex
+                                    ? 'text-blue-600'
+                                    : isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                                }`}>
+                                  {image.title}
+                                </p>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h5 className={`text-sm font-semibold mb-2 ${isDarkMode ? 'text-cyan-400' : 'text-cyan-600'}`}>Admin (Mobile)</h5>
+                        <div className="space-y-2">
+                          {capstoneGroups.adminMobile.map(({ image, index }) => (
+                            <motion.div
+                              key={index}
+                              whileHover={{ scale: 1.02 }}
+                              onClick={() => setCurrentImageIndex(index)}
+                              className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
+                                index === currentImageIndex
+                                  ? 'border-cyan-500 shadow-lg'
+                                  : isDarkMode ? 'border-gray-600 hover:border-gray-500' : 'border-gray-200 hover:border-gray-300'
+                              }`}
+                            >
+                              <img
+                                src={image.src}
+                                alt={image.title}
+                                className="w-full h-16 object-cover"
+                                onError={(e) => {
+                                  const fallbackSrc = '/rm.png';
+                                  if (e.currentTarget.src !== fallbackSrc) {
+                                    e.currentTarget.src = fallbackSrc;
+                                  }
+                                }}
+                                loading="lazy"
+                              />
+                              <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                                <p className={`text-xs font-medium ${
+                                  index === currentImageIndex
+                                    ? (isDarkMode ? 'text-cyan-300' : 'text-cyan-600')
+                                    : isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                                }`}>
+                                  {image.title}
+                                </p>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h5 className={`text-sm font-semibold mb-2 ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>User (Web)</h5>
+                        <div className="space-y-2">
+                          {capstoneGroups.userWeb.map(({ image, index }) => (
+                            <motion.div
+                              key={index}
+                              whileHover={{ scale: 1.02 }}
+                              onClick={() => setCurrentImageIndex(index)}
+                              className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
+                                index === currentImageIndex
+                                  ? 'border-green-500 shadow-lg'
+                                  : isDarkMode ? 'border-gray-600 hover:border-gray-500' : 'border-gray-200 hover:border-gray-300'
+                              }`}
+                            >
+                              <img
+                                src={image.src}
+                                alt={image.title}
+                                className="w-full h-16 object-cover"
+                                onError={(e) => {
+                                  const fallbackSrc = '/rm.png';
+                                  if (e.currentTarget.src !== fallbackSrc) {
+                                    e.currentTarget.src = fallbackSrc;
+                                  }
+                                }}
+                                loading="lazy"
+                              />
+                              <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                                <p className={`text-xs font-medium ${
+                                  index === currentImageIndex
+                                    ? 'text-green-600'
+                                    : isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                                }`}>
+                                  {image.title}
+                                </p>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h5 className={`text-sm font-semibold mb-2 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`}>User (Mobile)</h5>
+                        <div className="space-y-2">
+                          {capstoneGroups.userMobile.map(({ image, index }) => (
+                            <motion.div
+                              key={index}
+                              whileHover={{ scale: 1.02 }}
+                              onClick={() => setCurrentImageIndex(index)}
+                              className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
+                                index === currentImageIndex
+                                  ? 'border-emerald-500 shadow-lg'
+                                  : isDarkMode ? 'border-gray-600 hover:border-gray-500' : 'border-gray-200 hover:border-gray-300'
+                              }`}
+                            >
+                              <img
+                                src={image.src}
+                                alt={image.title}
+                                className="w-full h-16 object-cover"
+                                onError={(e) => {
+                                  const fallbackSrc = '/rm.png';
+                                  if (e.currentTarget.src !== fallbackSrc) {
+                                    e.currentTarget.src = fallbackSrc;
+                                  }
+                                }}
+                                loading="lazy"
+                              />
+                              <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                                <p className={`text-xs font-medium ${
+                                  index === currentImageIndex
+                                    ? (isDarkMode ? 'text-emerald-300' : 'text-emerald-600')
+                                    : isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                                }`}>
+                                  {image.title}
+                                </p>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div>
+                        <h5 className={`text-sm font-semibold mb-2 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`}>Admin Features</h5>
+                        <div className="space-y-2">
+                          {currentGallery.filter((_, index) => ADMIN_FEATURE_INDICES.includes(index)).map((image, filteredIndex) => {
+                            const originalIndex = ADMIN_FEATURE_INDICES[filteredIndex];
+                            return (
+                              <motion.div
+                                key={originalIndex}
+                                whileHover={{ scale: 1.02 }}
+                                onClick={() => setCurrentImageIndex(originalIndex)}
+                                className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
+                                  originalIndex === currentImageIndex 
+                                    ? 'border-blue-500 shadow-lg' 
+                                    : isDarkMode ? 'border-gray-600 hover:border-gray-500' : 'border-gray-200 hover:border-gray-300'
+                                }`}
+                              >
+                                <img
+                                  src={image.src}
+                                  alt={image.title}
+                                  className="w-full h-16 object-cover"
+                                  onError={(e) => {
+                                    const fallbackSrc = '/rm.png';
+                                    if (e.currentTarget.src !== fallbackSrc) {
+                                      e.currentTarget.src = fallbackSrc;
+                                    }
+                                  }}
+                                  loading="lazy"
+                                />
+                                <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                                  <p className={`text-xs font-medium ${
+                                    originalIndex === currentImageIndex 
+                                      ? 'text-blue-600' 
+                                      : isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                                  }`}>
+                                    {image.title}
+                                  </p>
+                                </div>
+                              </motion.div>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h5 className={`text-sm font-semibold mb-2 ${isDarkMode ? 'text-green-400' : 'text-green-600'}`}>User Features</h5>
+                        <div className="space-y-2">
+                          {currentGallery.filter((_, index) => USER_FEATURE_INDICES.includes(index)).map((image, filteredIndex) => {
+                            const originalIndex = USER_FEATURE_INDICES[filteredIndex];
+                            return (
+                              <motion.div
+                                key={originalIndex}
+                                whileHover={{ scale: 1.02 }}
+                                onClick={() => setCurrentImageIndex(originalIndex)}
+                                className={`cursor-pointer rounded-lg overflow-hidden border-2 transition-all ${
+                                  originalIndex === currentImageIndex 
+                                    ? 'border-blue-500 shadow-lg' 
+                                    : isDarkMode ? 'border-gray-600 hover:border-gray-500' : 'border-gray-200 hover:border-gray-300'
+                                }`}
+                              >
+                                <img
+                                  src={image.src}
+                                  alt={image.title}
+                                  className="w-full h-16 object-cover"
+                                  onError={(e) => {
+                                    const fallbackSrc = '/rm.png';
+                                    if (e.currentTarget.src !== fallbackSrc) {
+                                      e.currentTarget.src = fallbackSrc;
+                                    }
+                                  }}
+                                  loading="lazy"
+                                />
+                                <div className={`p-2 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                                  <p className={`text-xs font-medium ${
+                                    originalIndex === currentImageIndex 
+                                      ? 'text-green-600' 
+                                      : isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                                  }`}>
+                                    {image.title}
+                                  </p>
+                                </div>
+                              </motion.div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </motion.div>

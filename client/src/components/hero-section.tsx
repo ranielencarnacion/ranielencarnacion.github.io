@@ -99,9 +99,8 @@ export default function HeroSection() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="https://drive.google.com/file/d/1sEEF0VO4gKGuK-Gyst2Np6K8ZvNUHGiu/view"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/RESUME-CV-RANIEL-ENCARNACION.pdf"
+            download
             className={`px-6 sm:px-8 py-3 rounded-lg transition-all duration-300 flex items-center gap-2 justify-center font-medium text-sm sm:text-base w-full sm:w-auto ${
               isDarkMode 
                 ? 'glassmorphism text-white hover:bg-white/20'
@@ -140,7 +139,7 @@ export default function HeroSection() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            href="https://www.linkedin.com/in/encarnacion-raniel-b78416263/"
+            href="https://www.linkedin.com/in/raniel-encarnacion-b78416263/"
             target="_blank"
             rel="noopener noreferrer"
             className={`p-3 sm:px-4 sm:py-3 rounded-lg transition-all duration-300 flex items-center justify-center shadow-lg border ${

@@ -17,6 +17,7 @@ export default function CertificationsSection() {
       type: "Networking Certification",
       date: "Apr 2025",
       link: "https://www.credly.com/badges/11d47309-9134-489b-9464-04b69c5a8208/linked_in_profile",
+      image: "/NetworkingDevicesandBasicConfigUpdate20250815-31-a66vgx.png",
       icon: "fas fa-network-wired",
       color: "text-blue-600",
       bgColor: "from-blue-600/20 to-blue-700/20"
@@ -27,6 +28,7 @@ export default function CertificationsSection() {
       type: "AI Certification",
       date: "Aug 2025",
       link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=7A0289A35A338C7C3AF558A406D9FC0AE28FF31C7E98279D2AEAAE3ECF676D70",
+      image: "/eCertificate.png",
       icon: "fas fa-brain",
       color: "text-red-600",
       bgColor: "from-red-600/20 to-orange-600/20"
@@ -37,6 +39,7 @@ export default function CertificationsSection() {
       type: "Cybersecurity Certification", 
       date: "Aug 2025",
       link: "https://www.credly.com/badges/eeccb2c5-43ec-462d-9e97-33ad4ce54437/public_url",
+      image: "/EthicalHackerUpdate20250820-31-yeuzfh.png",
       icon: "fas fa-shield-alt",
       color: "text-green-600",
       bgColor: "from-green-600/20 to-emerald-600/20"
@@ -47,9 +50,98 @@ export default function CertificationsSection() {
       type: "Advanced Foundry",
       date: "Aug 2025", 
       link: "https://profiles.cyfrin.io/u/lumawigraniel/achievements/advanced-foundry",
+      image: "/Advanced Foundry X5ZNEFQHFWMA 2025-7-15.png",
       icon: "fas fa-hammer",
       color: "text-purple-600",
       bgColor: "from-purple-600/20 to-indigo-600/20"
+    },
+    {
+      title: "Operating Systems Basics",
+      provider: "Cisco",
+      type: "Training",
+      date: "Sep 2025",
+      link: "https://www.credly.com/badges/49f72a6f-0f03-4487-95d8-70598ae68a4d/linked_in?t=t2xqyx",
+      image: "/Operating_Systems_Basics_certificate_lumawigraniel-gmail-com_02e26710-2561-4ff1-8cea-375b81a0c569_page-0001.jpg",
+      icon: "fas fa-desktop",
+      color: "text-sky-600",
+      bgColor: "from-sky-600/20 to-blue-600/20"
+    },
+    {
+      title: "DICT R3",
+      provider: "DICT",
+      type: "Training",
+      date: "Oct 2025",
+      link: "https://dict.gov.ph/home",
+      image: "/DICT R3_page-0001.jpg",
+      icon: "fas fa-certificate",
+      color: "text-amber-600",
+      bgColor: "from-amber-600/20 to-yellow-600/20"
+    },
+    {
+      title: "Hour of Code",
+      provider: "Training",
+      type: "Training",
+      date: "Feb 2026",
+      link: "https://code.org/en-US/hour-of-code",
+      image: "/Encarnacion _Hour of Code_page-0001.jpg",
+      icon: "fas fa-code",
+      color: "text-indigo-600",
+      bgColor: "from-indigo-600/20 to-purple-600/20"
+    },
+    {
+      title: "AI Ready ASEAN Programme",
+      provider: "ASEAN",
+      type: "Training",
+      date: "Oct 2025",
+      link: "https://www.aiclassasean.org/",
+      image: "/(Bulk 1) Copy of OG BTFM x AI Ready ASEAN Programme_Certificate.png",
+      icon: "fas fa-robot",
+      color: "text-fuchsia-600",
+      bgColor: "from-fuchsia-600/20 to-pink-600/20"
+    },
+    {
+      title: "Tech Internships Decoded",
+      provider: "Exact Colleges of Asia",
+      type: "Training",
+      date: "May 2024",
+      link: "#",
+      image: "/Tech Internships Decoded.jpg",
+      icon: "fas fa-briefcase",
+      color: "text-teal-600",
+      bgColor: "from-teal-600/20 to-cyan-600/20"
+    },
+    {
+      title: "Hour of Code (Minecraft)",
+      provider: "Code.org",
+      type: "Training",
+      date: "May 2025",
+      link: "https://code.org/en-US/hour-of-code",
+      image: "/minecraft.jpg",
+      icon: "fas fa-gamepad",
+      color: "text-emerald-600",
+      bgColor: "from-emerald-600/20 to-green-600/20"
+    },
+    {
+      title: "Hour of Code (Music Lab)",
+      provider: "Code.org",
+      type: "Training",
+      date: "May 2025",
+      link: "https://code.org/en-US/hour-of-code",
+      image: "/musiclab.jpg",
+      icon: "fas fa-music",
+      color: "text-violet-600",
+      bgColor: "from-violet-600/20 to-fuchsia-600/20"
+    },
+    {
+      title: "Responsive Web Design",
+      provider: "freeCodeCamp",
+      type: "Web Development Certification",
+      date: "Mar 2026",
+      link: "https://www.freecodecamp.org/certification/raincarnacion/responsive-web-design-v9",
+      image: "/freecodecamp.png",
+      icon: "fas fa-code",
+      color: "text-cyan-600",
+      bgColor: "from-cyan-600/20 to-teal-600/20"
     }
   ];
 
@@ -94,70 +186,22 @@ export default function CertificationsSection() {
               <div 
                 className="h-48 relative overflow-hidden bg-white rounded-t-2xl cursor-pointer"
                 onClick={() => {
-                  let imageUrl = '';
-                  if (cert.type === "Networking Certification") {
-                    imageUrl = '/NetworkingDevicesandBasicConfigUpdate20250815-31-a66vgx.png';
-                  } else if (cert.type === "Cybersecurity Certification") {
-                    imageUrl = '/EthicalHackerUpdate20250820-31-yeuzfh.png';
-                  } else if (cert.type === "AI Certification") {
-                    imageUrl = '/eCertificate.png';
-                  } else if (cert.type === "Advanced Foundry") {
-                    imageUrl = '/Advanced Foundry X5ZNEFQHFWMA 2025-7-15.png';
-                  }
-                  if (imageUrl) {
-                    setSelectedCertificate(imageUrl);
+                  if (cert.image) {
+                    setSelectedCertificate(cert.image);
                   }
                 }}
               >
                 {/* Certificate Image Background */}
-                {cert.type === "Networking Certification" && (
-                  <div 
-                    className="absolute inset-0 w-full h-full"
-                    style={{
-                      backgroundImage: `url('/NetworkingDevicesandBasicConfigUpdate20250815-31-a66vgx.png')`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundColor: '#ffffff'
-                    }}
-                  />
-                )}
-                {cert.type === "Cybersecurity Certification" && (
-                  <div 
-                    className="absolute inset-0 w-full h-full"
-                    style={{
-                      backgroundImage: `url('/EthicalHackerUpdate20250820-31-yeuzfh.png')`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundColor: '#ffffff'
-                    }}
-                  />
-                )}
-                {cert.type === "AI Certification" && (
-                  <div 
-                    className="absolute inset-0 w-full h-full"
-                    style={{
-                      backgroundImage: `url('/eCertificate.png')`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundColor: '#ffffff'
-                    }}
-                  />
-                )}
-                {cert.type === "Advanced Foundry" && (
-                  <div 
-                    className="absolute inset-0 w-full h-full"
-                    style={{
-                      backgroundImage: `url('/Advanced Foundry X5ZNEFQHFWMA 2025-7-15.png')`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundColor: '#ffffff'
-                    }}
-                  />
-                )}
+                <div 
+                  className="absolute inset-0 w-full h-full"
+                  style={{
+                    backgroundImage: `url('${cert.image}')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundColor: '#ffffff'
+                  }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
               </div>
               

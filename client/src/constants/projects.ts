@@ -60,9 +60,31 @@ export const PROJECTS_DATA: Project[] = [
     ],
     technologies: ["HTML", "CSS", "JavaScript", "Vite", "Supabase"],
     period: "2025",
-    image: "/mobile inventory/Landing page.png",
+    image: "/mobile inventory/SYSTEM IMAGES/LANDING PAGE.png",
     demoLink: "#",
-    codeLink: "#"
+    codeLink: "#",
+    gallery: [
+      { src: "/mobile inventory/SYSTEM IMAGES/LANDING PAGE.png", title: "Landing Page" },
+      { src: "/mobile inventory/SYSTEM IMAGES/CREATE ACCOUNT PAGE.png", title: "Create Account" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/DASHBOARD.png", title: "Admin Dashboard" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/INVENTORY.png", title: "Admin Inventory" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/USER MANAGEMENT.png", title: "User Management" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/BORROW REQUEST.png", title: "Borrow Request" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/ADD ITEM & GENERATE QR.png", title: "Add Item & Generate QR" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/QR SCANNER.png", title: "QR Scanner" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/PRINT INVENTORY.png", title: "Print Inventory" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/CHANGE PASSWORD.png", title: "Change Password" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/MOBILE DASHBOARD.png", title: "Mobile Dashboard (Admin)" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/MOBILE QR SCANNER.png", title: "Mobile QR Scanner (Admin)" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/MOBILE BORROW .png", title: "Mobile Borrow (Admin)" },
+      { src: "/mobile inventory/SYSTEM IMAGES/ADMIN/MOBILE CHANGE PASSWORD.png", title: "Mobile Change Password (Admin)" },
+      { src: "/mobile inventory/SYSTEM IMAGES/USER/DASHBOARD.png", title: "User Dashboard" },
+      { src: "/mobile inventory/SYSTEM IMAGES/USER/REQUEST TO BORROW.png", title: "Request To Borrow" },
+      { src: "/mobile inventory/SYSTEM IMAGES/USER/CHANGE PASSWORD.png", title: "Change Password (User)" },
+      { src: "/mobile inventory/SYSTEM IMAGES/USER/MOBILE DASHBOARD.png", title: "Mobile Dashboard (User)" },
+      { src: "/mobile inventory/SYSTEM IMAGES/USER/MOBILE REQUEST TO BORROW.png", title: "Mobile Request To Borrow (User)" },
+      { src: "/mobile inventory/SYSTEM IMAGES/USER/MOBILE CHANGE PASSWORD.png", title: "Mobile Change Password (User)" }
+    ]
   },
   {
     title: "ESCafe - Coffee Shop Website",

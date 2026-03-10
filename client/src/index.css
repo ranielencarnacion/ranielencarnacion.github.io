@@ -512,6 +512,24 @@
       min-height: 44px;
       touch-action: manipulation;
     }
+    
+    /* Ensure grid items are visible on mobile */
+    .grid {
+      display: grid !important;
+    }
+    
+    /* Fix overflow issues on mobile */
+    section {
+      overflow-x: hidden;
+      overflow-y: visible;
+    }
+    
+    /* Ensure cards don't get cut off */
+    [class*="glassmorphism"] {
+      min-height: auto;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
   }
 
   /* Tablet optimizations */

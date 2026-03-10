@@ -146,8 +146,8 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section className={`py-12 sm:py-16 md:py-24 relative ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+    <section className={`py-12 sm:py-16 md:py-24 relative overflow-y-visible ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl w-full min-h-screen">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -167,7 +167,7 @@ export default function CertificationsSection() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4 md:gap-6 lg:gap-8 pb-8">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.title}
@@ -180,12 +180,12 @@ export default function CertificationsSection() {
                 transition: { duration: 0.2 }
               }}
               whileTap={{ scale: 0.98 }}
-              className="glassmorphism-enhanced rounded-xl sm:rounded-2xl overflow-hidden group transition-all-smooth hover:shadow-2xl active:scale-[0.98]"
+              className={`rounded-xl sm:rounded-2xl overflow-hidden group transition-all-smooth active:scale-[0.98] ${isDarkMode ? 'glassmorphism-enhanced hover:shadow-2xl' : 'bg-gray-50 border border-gray-200 hover:shadow-lg hover:border-gray-300'}`}
               data-testid={`certification-${cert.title.toLowerCase().replace(/\s+/g, '-')}`}
             >
               {/* Certificate Background Display */}
               <div 
-                className="h-36 sm:h-40 md:h-48 relative overflow-hidden bg-white rounded-t-xl sm:rounded-t-2xl cursor-pointer"
+                className="h-32 sm:h-40 md:h-48 relative overflow-hidden bg-white rounded-t-xl sm:rounded-t-2xl cursor-pointer"
                 onClick={() => {
                   if (cert.image) {
                     setSelectedCertificate(cert.image);
@@ -206,7 +206,7 @@ export default function CertificationsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
               </div>
               
-              <div className="p-3 sm:p-4 md:p-6">
+              <div className="p-4 sm:p-4 md:p-6">
                 <h3 className={`text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-3 transition-all duration-300 leading-tight ${
                   isDarkMode ? 'text-white group-hover:gradient-text-blue' : 'text-black'
                 }`}>{cert.title}</h3>

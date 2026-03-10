@@ -146,28 +146,28 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section className={`py-24 relative overflow-hidden ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
-      <div className="container mx-auto px-6 max-w-7xl">
+    <section className={`py-24 relative ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className={`text-5xl md:text-6xl font-bold mb-4 tracking-tight ${
-            isDarkMode ? 'gradient-text-white' : 'text-black'
+          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-normal px-2 sm:px-0 ${
+            isDarkMode ? 'text-white' : 'text-black'
           }`}>Certifications & Training</h2>
           <div className={`w-24 h-1 mx-auto rounded-full mb-4 ${
             isDarkMode ? 'bg-gradient-to-r from-white/80 to-gray-300' : 'bg-gradient-to-r from-black/80 to-gray-600'
           }`} />
-          <p className={`text-xl leading-relaxed font-light ${
+          <p className={`text-base sm:text-lg lg:text-xl leading-relaxed font-light px-4 sm:px-0 ${
             isDarkMode ? 'text-white/85' : 'text-black/85'
           }`}>
             Professional certifications and specialized training that demonstrate my commitment to continuous learning and technical excellence.
           </p>
         </motion.div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.title}
@@ -205,8 +205,8 @@ export default function CertificationsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
               </div>
               
-              <div className="p-6">
-                <h3 className={`text-xl font-bold mb-3 transition-all duration-300 ${
+              <div className="p-4 sm:p-6">
+                <h3 className={`text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 transition-all duration-300 ${
                   isDarkMode ? 'text-white group-hover:gradient-text-blue' : 'text-black'
                 }`}>{cert.title}</h3>
                 <p className={`font-semibold mb-2 ${

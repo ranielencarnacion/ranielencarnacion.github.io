@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Facebook, Instagram } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -31,13 +32,13 @@ export default function Footer() {
     <footer className={`py-12 border-t ${
       isDarkMode ? 'border-border bg-black' : 'border-gray-300 bg-white'
     }`}>
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex justify-center space-x-6 mb-6"
+            className="flex justify-center space-x-4 sm:space-x-6 mb-6"
           >
             {socialLinks.map((link) => (
               <motion.a
@@ -47,12 +48,13 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className={`transition-colors ${
+                className={`transition-colors p-2 sm:p-0 ${
                   isDarkMode ? 'text-muted-foreground hover:text-primary' : 'text-gray-600 hover:text-black'
                 }`}
                 data-testid={`footer-social-${link.name.toLowerCase()}`}
               >
-                {link.icon}
+                {React.cloneElement(link.icon, { size: 20, className: 'sm:hidden' })}
+                {React.cloneElement(link.icon, { size: 24, className: 'hidden sm:block' })}
               </motion.a>
             ))}
           </motion.div>

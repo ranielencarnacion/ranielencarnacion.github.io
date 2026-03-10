@@ -110,7 +110,7 @@ export default function ContactSection() {
             <Github size={20} />
           </motion.a>
           <motion.a 
-            href="https://www.linkedin.com/in/encarnacion-raniel-b78416263" 
+            href="https://www.linkedin.com/in/raniel-encarnacion-b78416263/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className={`transition-all duration-300 p-3 rounded-full glassmorphism ${

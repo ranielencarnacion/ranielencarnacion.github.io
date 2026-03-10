@@ -272,22 +272,22 @@ export default function MajorProjectsSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
             onClick={closeGallery}
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className={`relative w-full max-w-7xl max-h-[90vh] rounded-2xl overflow-hidden flex flex-col lg:flex-row ${isDarkMode ? 'bg-black' : 'bg-white'}`}
+              className={`relative w-full max-w-7xl max-h-[95vh] sm:max-h-[90vh] rounded-xl sm:rounded-2xl overflow-hidden flex flex-col lg:flex-row ${isDarkMode ? 'bg-black' : 'bg-white'}`}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Main Content */}
               <div className="flex-1 flex flex-col">
                 {/* Header */}
-                <div className={`flex items-center justify-between p-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
+                <div className={`flex items-center justify-between p-3 sm:p-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'}`}>
                   <div>
-                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>{selectedProject}</h3>
+                    <h3 className={`text-base sm:text-lg lg:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-black'}`}>{selectedProject}</h3>
                     <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                       {currentGallery[currentImageIndex]?.title}
                     </p>
@@ -305,7 +305,7 @@ export default function MajorProjectsSection() {
                   <img
                     src={currentGallery[currentImageIndex]?.src}
                     alt={currentGallery[currentImageIndex]?.title}
-                    className="max-w-[90%] max-h-[50vh] object-contain shadow-lg rounded-lg"
+                    className="max-w-[90%] sm:max-w-[85%] max-h-[40vh] sm:max-h-[50vh] object-contain shadow-lg rounded-lg"
                     onError={(e) => {
                       const fallbackSrc = '/rm.png';
                       if (e.currentTarget.src !== fallbackSrc) {

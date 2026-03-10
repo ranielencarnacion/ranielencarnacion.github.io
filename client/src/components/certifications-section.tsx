@@ -7,7 +7,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 export default function CertificationsSection() {
   const { isDarkMode } = useTheme();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
 
   const certifications = [
@@ -146,8 +146,8 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section className={`py-12 sm:py-16 md:py-24 relative overflow-y-visible ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
-      <div className="container mx-auto px-4 sm:px-6 max-w-7xl w-full min-h-screen">
+    <section className={`py-12 sm:py-16 md:py-24 relative ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl w-full">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
@@ -167,13 +167,14 @@ export default function CertificationsSection() {
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4 md:gap-6 lg:gap-8 pb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-4 md:gap-6 lg:gap-8 pb-12 sm:pb-8">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: Math.min(index * 0.05, 0.3) }}
               whileHover={{ 
                 scale: 1.02,
                 y: -5,

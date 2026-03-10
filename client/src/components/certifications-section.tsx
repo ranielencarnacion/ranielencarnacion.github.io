@@ -146,28 +146,28 @@ export default function CertificationsSection() {
   ];
 
   return (
-    <section className={`py-24 relative ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
+    <section className={`py-12 sm:py-16 md:py-24 relative ${isDarkMode ? 'bg-black' : 'bg-white'}`} ref={ref}>
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-normal px-2 sm:px-0 ${
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 tracking-normal px-2 sm:px-0 ${
             isDarkMode ? 'text-white' : 'text-black'
           }`}>Certifications & Training</h2>
           <div className={`w-24 h-1 mx-auto rounded-full mb-4 ${
             isDarkMode ? 'bg-gradient-to-r from-white/80 to-gray-300' : 'bg-gradient-to-r from-black/80 to-gray-600'
           }`} />
-          <p className={`text-base sm:text-lg lg:text-xl leading-relaxed font-light px-4 sm:px-0 ${
+          <p className={`text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-light px-3 sm:px-0 ${
             isDarkMode ? 'text-white/85' : 'text-black/85'
           }`}>
             Professional certifications and specialized training that demonstrate my commitment to continuous learning and technical excellence.
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
           {certifications.map((cert, index) => (
             <motion.div
               key={cert.title}
@@ -175,16 +175,17 @@ export default function CertificationsSection() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ 
-                scale: 1.05,
-                y: -10,
+                scale: 1.02,
+                y: -5,
                 transition: { duration: 0.2 }
               }}
-              className="glassmorphism-enhanced rounded-2xl overflow-hidden group transition-all-smooth hover:shadow-2xl"
+              whileTap={{ scale: 0.98 }}
+              className="glassmorphism-enhanced rounded-xl sm:rounded-2xl overflow-hidden group transition-all-smooth hover:shadow-2xl active:scale-[0.98]"
               data-testid={`certification-${cert.title.toLowerCase().replace(/\s+/g, '-')}`}
             >
               {/* Certificate Background Display */}
               <div 
-                className="h-48 relative overflow-hidden bg-white rounded-t-2xl cursor-pointer"
+                className="h-36 sm:h-40 md:h-48 relative overflow-hidden bg-white rounded-t-xl sm:rounded-t-2xl cursor-pointer"
                 onClick={() => {
                   if (cert.image) {
                     setSelectedCertificate(cert.image);
@@ -205,14 +206,14 @@ export default function CertificationsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent" />
               </div>
               
-              <div className="p-4 sm:p-6">
-                <h3 className={`text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 transition-all duration-300 ${
+              <div className="p-3 sm:p-4 md:p-6">
+                <h3 className={`text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2 md:mb-3 transition-all duration-300 leading-tight ${
                   isDarkMode ? 'text-white group-hover:gradient-text-blue' : 'text-black'
                 }`}>{cert.title}</h3>
-                <p className={`font-semibold mb-2 ${
+                <p className={`font-semibold text-xs sm:text-sm mb-1 sm:mb-2 ${
                   isDarkMode ? 'text-blue-300' : 'text-blue-600'
                 }`}>{cert.provider}</p>
-                <p className={`text-xs mb-4 font-medium ${
+                <p className={`text-xs mb-2 sm:mb-4 font-medium ${
                   isDarkMode ? 'text-white/60' : 'text-black/60'
                 }`}>{cert.date}</p>
                 {cert.link && (
@@ -226,7 +227,7 @@ export default function CertificationsSection() {
                       window.open(cert.link, '_blank');
                     }}
                   >
-                    <span className="font-medium">View Credential</span>
+                    <span className="font-medium text-xs sm:text-sm">View Credential</span>
                     <ExternalLink size={16} className="ml-2" />
                   </motion.div>
                 )}
@@ -243,26 +244,27 @@ export default function CertificationsSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
           onClick={() => setSelectedCertificate(null)}
         >
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            className="relative max-w-4xl max-h-[90vh] bg-white rounded-lg overflow-hidden"
+            className="relative w-full max-w-[95vw] sm:max-w-4xl max-h-[95vh] sm:max-h-[90vh] bg-white rounded-lg sm:rounded-xl overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedCertificate(null)}
-              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 sm:p-2 transition-colors touch-manipulation"
             >
-              <X size={20} />
+              <X size={18} className="sm:hidden" />
+              <X size={20} className="hidden sm:block" />
             </button>
             <img
               src={selectedCertificate}
               alt="Certificate"
-              className="w-full h-full object-contain"
+              className="w-full h-auto max-h-[85vh] sm:max-h-[80vh] object-contain"
             />
           </motion.div>
         </motion.div>

@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Download, Eye, ChevronDown, Facebook, Twitter } from "lucide-react";
+import { useState } from "react";
 import TypingAnimation from "./ui/typing-animation";
 import { useTheme } from "@/contexts/ThemeContext";
+import ResumeModal from "./ui/resume-modal";
 
 export default function HeroSection() {
   const { isDarkMode } = useTheme();
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
   const titles = [
     "Raniel Encarnacion"
   ];
@@ -96,11 +99,10 @@ export default function HeroSection() {
             View My Work
           </motion.button>
           
-          <motion.a
+          <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="/RESUME-CV-RANIEL-ENCARNACION.pdf"
-            download
+            onClick={() => setIsResumeOpen(true)}
             className={`px-6 sm:px-8 py-3 rounded-lg transition-all duration-300 flex items-center gap-2 justify-center font-medium text-sm sm:text-base w-full sm:w-auto ${
               isDarkMode 
                 ? 'glassmorphism text-white hover:bg-white/20'
@@ -110,7 +112,7 @@ export default function HeroSection() {
           >
             <Download size={18} />
             Download CV
-          </motion.a>
+          </motion.button>
         </motion.div>
         
         {/* Social Links */}
@@ -204,6 +206,9 @@ export default function HeroSection() {
           <ChevronDown size={20} className="drop-shadow-lg" />
         </motion.button>
       </motion.div>
+
+      {/* Resume Modal */}
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} isDarkMode={isDarkMode} />
     </section>
   );
 }

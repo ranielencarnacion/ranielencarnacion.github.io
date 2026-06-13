@@ -23,7 +23,7 @@ export default function Footer() {
     },
     {
       name: "Instagram",
-      url: "https://x.com/rainraingoaweyn",
+      url: "https://instagram.com/raniel.encarnacion",
       icon: <Instagram size={24} />
     }
   ];

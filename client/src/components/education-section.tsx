@@ -15,7 +15,7 @@ export default function EducationSection() {
       institution: "EXACT Colleges of Asia",
       location: "Suclayin, Arayat, Pampanga",
       period: "2023-2026",
-      status: "Currently Enrolled",
+      status: "Graduated",
       description: "Specialized in software development, database management, and information systems.",
       achievements: ["Completed SAD on ECA MIS IT Service Management Ticketing System"]
     },

@@ -152,9 +152,7 @@ export default function AboutSection() {
                   isDarkMode ? 'text-white/85' : 'text-black/85'
                 }`}
               >
-                Hello! I'm Raniel Encarnacion, a graduating student at Exact Colleges of Asia, pursuing a Bachelor of Science in Information Systems. My journey into web development started with curiosity about how websites are built and has grown into a strong passion for creating interactive and visually appealing web experiences.
-
-As I prepare to enter the professional field, I continue to expand my skills by learning modern technologies, building practical projects, and collaborating with other developers. I am eager to contribute to meaningful projects that combine creativity, innovation, and functionality.
+                Hello! I'm Raniel Encarnacion, a BS Information Systems graduate passionate about technology, web development, and digital solutions. I have experience in system development, database management, and web technologies through academic projects and internship training. I'm eager to continuously learn, grow my skills, and contribute to innovative IT projects.
               </motion.p>
               
             </motion.div>

@@ -120,7 +120,7 @@ export default function AboutSection() {
                   rotateY: 10,
                   transition: { duration: 0.2 }
                 }}
-                src="/profilepic.png"
+                src="/GRAD PIC.png"
                 alt="Raniel Encarnacion - Software Engineer"
                 className="w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full object-cover border-4 border-white/20 shadow-2xl relative z-10 cursor-pointer transition-all-smooth group-hover:border-white/40"
                 data-testid="profile-image"
